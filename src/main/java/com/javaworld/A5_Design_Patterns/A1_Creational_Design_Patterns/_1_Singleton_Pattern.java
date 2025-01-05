@@ -1,7 +1,4 @@
 package com.javaworld.A5_Design_Patterns.A1_Creational_Design_Patterns;
-/**
- * 
- */
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,17 +12,12 @@ import java.io.Serializable;
 import java.lang.reflect.Constructor;
 
 /**
+ * Singleton pattern restricts the instantiation of a class and ensures that only one instance of the
+ * class exists in the JVM. It is used for logging, drivers objects, caching and thread pool. It is
+ * also used in other design patterns like Abstract Factory, Builder, Prototype, Facade etc.
  * 
- * Singleton pattern restricts the instantiation of a class and ensures that
- * only one instance of the class exists in the JVM. It seems to be a very
- * simple design pattern but when it comes to implementation, it comes with a
- * lot of implementation concerns. It is used for logging, drivers objects,
- * caching and thread pool. It is also used in other design patterns like
- * Abstract Factory, Builder, Prototype, Facade etc.
- * 
- * 
- * To implement Singleton pattern, we have different approaches but all of them
- * have following common concepts.
+ * To implement Singleton pattern, we have different approaches but all of them have following common
+ * concepts.
  * .Private constructor to restrict instantiation of the class from other classes.
  * .Private static variable of the same class that is the only instance of the class.
  * .Public static method that returns the instance of the class, this is the global access point for

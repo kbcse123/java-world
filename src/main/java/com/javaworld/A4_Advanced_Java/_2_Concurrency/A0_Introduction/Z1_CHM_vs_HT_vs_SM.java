@@ -37,8 +37,7 @@ package com.javaworld.A4_Advanced_Java._2_Concurrency.A0_Introduction;
  *
  * 
  * 
- *         https://crunchify.com/hashmap-vs-concurrenthashmap-vs-synchronizedmap
- *         -how-a-hashmap-can-be-synchronized-in-java/
+ *         https://crunchify.com/hashmap-vs-concurrenthashmap-vs-synchronizedmap-how-a-hashmap-can-be-synchronized-in-java/
  * 
  */
 

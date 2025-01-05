@@ -2,40 +2,30 @@
 package com.javaworld.A4_Advanced_Java._2_Concurrency.A0_Introduction;
 
 /**
-
-*
-
- */
-
-/**
  * 
  * @author Shaik Khader
  * 
  *         Executors:
  * 
- *         In all of the previous examples, there's a close connection between
- *         the task being done by a new thread, as defined by its Runnable
- *         object, and the thread itself, as defined by a Thread object. This
- *         works well for small applications, but in large-scale applications,
- *         it makes sense to separate thread management and creation from the
- *         rest of the application. Objects that encapsulate these functions are
- *         known as executors.
- * 
- *         The java.util.concurrent package defines three executor interfaces:
+ *         In all the previous examples, there's a close connection between the task being done by a new
+ *         thread, as defined by its Runnable object, and the thread itself, as defined by a Thread
+ *         object. This works well for small applications, but in large-scale applications, it makes
+ *         sense to separate thread management and creation from the rest of the application. Objects
+ *         that encapsulate these functions are known as executors. The java.util.concurrent package
+ *         defines three executor interfaces:
  * 
  *         1.Executor - a simple interface that supports launching new tasks.
  * 
- *         2.ExecutorService - a subinterface of Executor,which adds features
- *         that help manage the lifecycle,both of the individual tasks and of
- *         the executor itself.
+ *         2.ExecutorService - a subinterface of Executor,which adds features that help manage the
+ *         lifecycle,both of the individual tasks and of the executor itself.
  * 
- *         3.ScheduledExecutorService - a subinterface of ExecutorService,
- *         supports future and/or periodic execution of tasks.
+ *         3.ScheduledExecutorService - a subinterface of ExecutorService, supports future and/or periodic
+ *         execution of tasks.
  * 
  *         Typically, variables that refer to executor objects are declared as
  *         one of these three interface types, not with an executor class type.
  * 
- *         The Executor Interface: provides a single method, execute, designed
+ *         The Executor Interface provides a single method, execute, designed
  *         to be a drop-in replacement for a common thread-creation idiom. If r
  *         is a Runnable object, and e is an Executor object you can replace
  * 

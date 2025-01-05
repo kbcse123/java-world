@@ -249,97 +249,55 @@ package com.javaworld.A4_Advanced_Java._2_Concurrency.A0_Introduction;
  */
 
 class ThreadIntereferenceDemo {
-
 	private Integer counter = 0;
-
 	private static boolean synchronizedCode;
-
 	public static void startDemo(boolean syncCode) throws InterruptedException {
-
 		synchronizedCode = syncCode;
-
 		ThreadIntereferenceDemo demo = new ThreadIntereferenceDemo();
-
 		Task task1 = demo.new Task();
-
 		Thread thread1 = new Thread(task1,"Thread1");
-
 		Task task2 = demo.new Task();
-
 		Thread thread2 = new Thread(task2,"Thread2");
-
 		thread1.start();
-
 		thread2.start();
-
 		thread1.join();
-
 		thread2.join();
-
 	}
 
 	private void unSynchronizedTask() {
-
 		int temp = counter;
-
 		counter++;
-
 		System.out.println(Thread.currentThread()
-
 				.getName() + " - before: " + temp + " after:" + counter);
-
 	}
 
 	private synchronized void synchronizedTask() {
-
 		int temp = counter;
-
 		counter++;
-
 		System.out.println(Thread.currentThread()
-
 				.getName() + " - before: " + temp + " after:" + counter);
-
 	}
 
 	private class Task implements Runnable {
-
 		@Override
-
 		public void run() {
-
 			for (int i = 0; i < 5; i++) {
-
 				if (synchronizedCode) {
-
 					synchronizedTask();
-
 				} else {
-
 					unSynchronizedTask();
-
 				}
-
 			}
-
 		}
-
 	}
 
 }
 
 public class A3_Synchronization {
-
 	public static void main(String... args) throws InterruptedException {
-
 		System.out.println("*** Using Non Synchronized ***");
-
 		ThreadIntereferenceDemo.startDemo(false);
-
 		System.out.println("\n*** Using Synchronized ***");
-
 		ThreadIntereferenceDemo.startDemo(true);
-
 	}
-
 }

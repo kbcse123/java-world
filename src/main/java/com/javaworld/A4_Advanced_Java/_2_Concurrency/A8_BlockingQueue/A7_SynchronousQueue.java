@@ -6,30 +6,23 @@ import java.util.concurrent.SynchronousQueue;
 /**
  * @author Shaik Khader
  * 
- *         SynchronousQueue is a very special kind of queue - it implements a
- *         rendezvous approach (producer waits until consumer is ready, consumer
- *         waits until producer is ready) behind the interface of Queue.
+ *         SynchronousQueue is a very special kind of queue - it implements a rendezvous approach
+ *         (producer waits until consumer is ready, consumer waits until producer is ready) behind the
+ *         interface of Queue. Therefore, you may need it only in the special cases when you need that
+ *         particular semantics, for example, Single threading a task without queuing further requests.
  * 
- *         Therefore you may need it only in the special cases when you need
- *         that particular semantics, for example, Single threading a task
- *         without queuing further requests.
+ *         Another reason for using SynchronousQueue is performance. Implementation of SynchronousQueue
+ *         seems to be heavily optimized, so if you don't need anything more than a rendezvous point
+ *         (as in the case of Executors.newCachedThreadPool(), where consumers are created "on-demand",
+ *         so that queue items don't accumulate), you can get a performance gain by using SynchronousQueue.
  * 
- *         Another reason for using SynchronousQueue is performance.
- *         Implementation of SynchronousQueue seems to be heavily optimized, so
- *         if you don't need anything more than a rendezvous point (as in the
- *         case of Executors.newCachedThreadPool(), where consumers are created
- *         "on-demand", so that queue items don't accumulate), you can get a
- *         performance gain by using SynchronousQueue.
- * 
- *         Simple synthetic test shows that in a simple single producer - single
- *         consumer scenario on dual-core machine throughput of SynchronousQueue
- *         is ~20 time higher that throughput of LinkedBlockingQueue and
- *         ArrayBlockingQueue with queue length = 1. When queue length is
- *         increased, their throughput rises and almost reaches throughput of
- *         SynchronousQueue. It means that SynchronousQueue has low
- *         synchronization overhead on multi-core machines compared to other
- *         queues. But again, it matters only in specific circumstances when you
- *         need a rendezvous point disguised as Queue.
+ *         Simple synthetic test shows that in a simple single producer - single consumer scenario on
+ *         dual-core machine throughput of SynchronousQueue is ~20 time higher that throughput of
+ *         LinkedBlockingQueue and ArrayBlockingQueue with queue length = 1. When queue length is
+ *         increased, their throughput rises and almost reaches throughput of SynchronousQueue. It means
+ *         that SynchronousQueue has low synchronization overhead on multi-core machines compared to other
+ *         queues. But again, it matters only in specific circumstances when you need a rendezvous point
+ *         disguised as Queue.
  * 
  *         A blocking queue in which each insert operation must wait for a
  *         corresponding remove operation by another thread, and vice versa. A

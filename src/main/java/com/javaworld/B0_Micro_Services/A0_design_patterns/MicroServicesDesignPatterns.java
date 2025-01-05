@@ -16,5 +16,6 @@ package com.javaworld.B0_Micro_Services.A0_design_patterns;
  *
  * To address these challenges systematically, developers can leverage microservices design patterns.
  * These are tested solutions that serve as templates for solving recurring design problems.
+ * <img src="MicroServiceDesignPatterns.png" />
  */
 public class MicroServicesDesignPatterns {}

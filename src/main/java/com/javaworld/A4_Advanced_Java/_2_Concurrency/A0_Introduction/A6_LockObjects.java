@@ -73,7 +73,7 @@ class NumberPrinter implements Runnable {
 			if (turn) {
 				condition.await();
 			}
-			System.out.println(type + " " + i);
+			System.out.println(type + " - " + i);
 			turn = true;
 			condition.signalAll();
 		} catch (InterruptedException e) {
