@@ -28,13 +28,13 @@ import java.util.stream.Collectors;
  * 
  *         Prototype design pattern mandates that the Object which you are
  *         copying should provide the copying feature. It should not be done by
- *         any other class. However whether to use shallow or deep copy of the
- *         Object properties depends on the requirements and its a design
+ *         any other class. However, whether to use shallow or deep copy of the
+ *         Object properties depends on the requirements and it`s a design
  *         decision.
  * 
  *         If the object cloning was not provided, we will have to make database
  *         call to fetch the employee list every time. Then do the manipulations
- *         that would have been resource and time consuming.
+ *         that would have been resource and time-consuming.
  * 
  * 
  */
@@ -67,7 +67,7 @@ class Employees implements Cloneable {
 	// employees list.
 	@Override
 	public Employees clone() throws CloneNotSupportedException {
-		return new Employees(this.getEmpList().stream().collect(Collectors.toList()));
+		return new Employees(new ArrayList<>(this.getEmpList()));
 	}
 
 }

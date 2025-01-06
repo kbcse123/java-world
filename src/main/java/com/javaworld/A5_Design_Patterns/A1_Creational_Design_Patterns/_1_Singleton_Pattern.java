@@ -12,42 +12,34 @@ import java.io.Serializable;
 import java.lang.reflect.Constructor;
 
 /**
- * Singleton pattern restricts the instantiation of a class and ensures that only one instance of the
- * class exists in the JVM. It is used for logging, drivers objects, caching and thread pool. It is
- * also used in other design patterns like Abstract Factory, Builder, Prototype, Facade etc.
+ * Singleton pattern ensures that a class has only one instance and provides a global point of access to that instance.
+ * This is commonly used when exactly one object is needed in JVM to coordinate actions across the system.
+ * It is used for logging, drivers objects, caching and thread pool. It is also used in other design patterns like
+ * Abstract Factory, Builder, Prototype, Facade etc.
  * 
  * To implement Singleton pattern, we have different approaches but all of them have following common
  * concepts.
  * .Private constructor to restrict instantiation of the class from other classes.
  * .Private static variable of the same class that is the only instance of the class.
- * .Public static method that returns the instance of the class, this is the global access point for
- * outer world to get the instance of the singleton class.
+ * .Public static method that returns the static instance of the class.
  * 
- * Different approaches of Singleton pattern implementation and design concerns
- * with the implementation.
+ * Different approaches of Singleton pattern implementation:
  * 
  * .Eager initialization - initialization is done at declaration time itself.
- * 
  * .Static block initialization - initialization is done in static block.
- * 
  * .Lazy Initialization - initialization is done based on null condition check.
- * 
  * .Thread Safe Singleton - initialization is done inside a Synchronized block.
- * 
- * .Bill Pugh Singleton Implementation - initialization is done inside a private
- * static nested class.
- * 
+ * .Bill Pugh Singleton Implementation - initialization is done inside a private static nested class.
  * .Enum Singleton - Using Enum.
- * 
- * .Using Reflection to destroy Singleton
  *
- * .Serialization and Singleton
- * 
- * Examples in JDK: It is used in core java API classes like, java.lang.Runtime,
- * java.awt.Desktop.
+ * Problems that can break Singleton:
+ * 	.Reflection
+ * 	.Synchronization
+ * 	.Serialization
+ *
+ * Examples in JDK: It is used in core java API classes like, java.lang.Runtime, java.awt.Desktop.
  * 
  * @author Shaik Khader
- * 
  */
 
 class BillPughSingleton implements Serializable {
