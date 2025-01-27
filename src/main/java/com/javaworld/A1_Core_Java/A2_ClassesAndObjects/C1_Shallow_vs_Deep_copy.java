@@ -15,13 +15,12 @@ class ShallowCopy implements Cloneable{
 	
 	@Override
 	protected ShallowCopy clone(){
-		ShallowCopy clone = null;
 		try {
-			clone = (ShallowCopy) super.clone();
+			return (ShallowCopy) super.clone();
 		} catch (CloneNotSupportedException e) {
 			e.printStackTrace();
 		}
-		return clone;
+		return null;
 	}
 }
 
@@ -41,7 +40,7 @@ public class C1_Shallow_vs_Deep_copy {
 		System.out.println("cloneCopy.ro  hashcode="+cloneCopy.ro.hashCode());
 		System.out.println("Before Modification shallowCopy.ro.s ="+shallowCopy.ro.s);
 		cloneCopy.ro.s="modified";
-		System.out.println("After Modification shallowCopy.ro.s ="+shallowCopy.ro.s);
+		System.out.println("After Modification by cloneCopy, shallowCopy.ro.s ="+shallowCopy.ro.s);
 		
 	}
 	

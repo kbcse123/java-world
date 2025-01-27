@@ -218,7 +218,7 @@ class LockingConsumer implements Runnable {
     }
 }
 
-public class Z0_ProducerConsumerVariants {
+public class B0_ProducerConsumerVariants {
 
     public static void main(String... args) {
         usingTraditionalApproach();

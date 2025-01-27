@@ -41,7 +41,7 @@ package com.javaworld.A4_Advanced_Java._2_Concurrency.A0_Introduction;
  * 
  */
 
-public class Z1_CHM_vs_HT_vs_SM {
+public class B1_CHM_vs_HT_vs_SM {
 	public static void main(String... args) {
 
 	}
