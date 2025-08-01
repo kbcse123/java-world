@@ -1,0 +1,63 @@
+
+Aggregate Functions
+    An aggregate function is a function that performs a calculation on a set of values, and returns a single
+    value.
+
+1) MIN() and MAX()
+    returns the smallest/largest value of the selected column.
+
+    Syntax:
+        SELECT MIN(column_name)
+        FROM table_name
+        WHERE condition;
+
+        SELECT MAX(column_name)
+        FROM table_name
+        WHERE condition;
+
+    When you use MIN() or MAX(), the returned column will not have a descriptive name. use the AS keyword:
+        Example:
+            SELECT MIN(Price) AS SmallestPrice
+            FROM Products;
+
+2) COUNT()
+    .This Function returns the number of rows that matches a specified criterion.
+
+    Syntax:
+        SELECT COUNT(column_name)
+        FROM table_name
+        WHERE condition;
+
+    Example:
+        Find the total number of rows in the Products table:
+            SELECT COUNT(*)
+            FROM Products;
+
+    .If you specify a column name instead of (*), NULL values will not be counted.
+        Find the number of products where the ProductName is not null:
+            SELECT COUNT(ProductName)
+            FROM Products;
+
+        Find the number of products where Price is higher than 20:
+            SELECT COUNT(ProductID)
+            FROM Products
+            WHERE Price > 20;
+
+    .You can ignore duplicates by using the DISTINCT keyword in the COUNT() function.
+        How many different prices are there in the Products table:
+            SELECT COUNT(DISTINCT Price)
+            FROM Products;
+
+    .Give the counted column a alias name by using the AS keyword.
+            SELECT COUNT(*) AS TotalRecords
+            FROM Products;
+
+            SELECT COUNT(*) AS [Number of records]
+            FROM Products;
+
+3) SUM() - This function returns the total sum of a numeric column.
+
+        Syntax:
+            SELECT SUM(column_name)
+            FROM table_name
+            WHERE condition;

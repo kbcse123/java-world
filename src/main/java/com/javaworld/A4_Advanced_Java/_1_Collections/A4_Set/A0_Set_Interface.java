@@ -1,6 +1,9 @@
 package com.javaworld.A4_Advanced_Java._1_Collections.A4_Set;
 
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author Shaik Khader
  * 
@@ -105,4 +108,6 @@ package com.javaworld.A4_Advanced_Java._1_Collections.A4_Set;
  * 
  */
 
-public class A0_Set_Interface {}
+public class A0_Set_Interface {
+    Set<String> set = new HashSet<String>();
+}

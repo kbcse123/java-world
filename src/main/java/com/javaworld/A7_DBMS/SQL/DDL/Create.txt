@@ -1,0 +1,128 @@
+DDL stands for Data Definition Language
+
+a. The CREATE DATABASE statement is used to create a new SQL database. Make sure you have admin privilege
+before creating any database. Once a database is created, you can check it in the list of databases with
+the following SQL command: SHOW DATABASES;
+
+Syntax:
+CREATE DATABASE databasename;
+
+Example:
+CREATE DATABASE myDB;
+
+b. The CREATE TABLE statement is used to create a new table in a database.
+
+ Syntax:
+ CREATE TABLE table_name (
+     column1 datatype,
+     column2 datatype,
+     column3 datatype,
+    ....
+ );
+
+ Example:
+ CREATE TABLE Persons (
+     PersonID int,
+     FirstName varchar(255),
+     LastName varchar(255),
+     Address varchar(255),
+     City varchar(255)
+ );
+
+c. Create copy of Another Table
+     A copy of an existing table can also be created using CREATE TABLE. The new table gets the same
+     column definitions. All columns or specific columns can be selected. If you create a new table
+     using an existing table, the new table will be filled with the existing values from the old table.
+
+  Syntax:
+  CREATE TABLE new_table_name AS
+      SELECT column1, column2,...
+      FROM existing_table_name
+      WHERE ....;
+
+  Example:
+  CREATE TABLE CustomersCopy AS
+  SELECT customername, contactname
+  FROM customers;
+
+d. Create indexes in tables - Duplicate values are allowed:
+  The CREATE INDEX statement is used to create indexes in tables to retrieve data from the database more
+  quickly than otherwise. The users cannot see the indexes, they are just used to speed up
+  searches/queries.
+
+  Note: Updating a table with indexes takes more time than updating a table without (because the indexes
+  also need an update). So, only create indexes on columns that will be frequently searched against.
+
+  Syntax:
+  CREATE INDEX index_name
+  ON table_name (column1, column2, ...);
+
+  - Create a unique index on a table. Duplicate values are not allowed:
+
+  CREATE UNIQUE INDEX index_name
+  ON table_name (column1, column2, ...);
+
+  Example:
+  CREATE INDEX idx_pname
+  ON Persons (LastName, FirstName);
+
+e. Create View
+  In SQL, a view is a virtual table based on the result-set of an SQL statement. A view contains rows and
+  columns, just like a real table. The fields in a view are fields from one or more real tables in the
+  database. You can add SQL statements and functions to a view and present the data as if the data were
+  coming from one single table.
+
+  Syntax:
+  CREATE VIEW view_name AS
+  SELECT column1, column2, ...
+  FROM table_name
+  WHERE condition;
+
+  Note: A view always shows up-to-date data! The database engine recreates the view, every time a user
+  queries it.
+
+  Example:
+  CREATE VIEW [Brazil Customers] AS
+  SELECT CustomerName, ContactName
+  FROM Customers
+  WHERE Country = 'Brazil';
+
+  We can query the above view as follows: SELECT * FROM [Brazil Customers];
+
+  Example: create a view that selects every product in the "Products" table with a price higher than the
+   average price
+
+  CREATE VIEW [Products Above Average Price] AS
+  SELECT ProductName, Price
+  FROM Products
+  WHERE Price > (SELECT AVG(Price) FROM Products);
+
+f. Updating a View: A view can be updated with the CREATE OR REPLACE VIEW statement.
+
+  Syntax:
+  CREATE OR REPLACE VIEW view_name AS
+  SELECT column1, column2, ...
+  FROM table_name
+  WHERE condition;
+
+  Example:
+  CREATE OR REPLACE VIEW [Brazil Customers] AS
+  SELECT CustomerName, ContactName, City
+  FROM Customers
+  WHERE Country = 'Brazil';
+
+g. CREATE PROCEDURE
+   The CREATE PROCEDURE command is used to create a stored procedure.
+   A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over
+   again.
+
+   Example:
+   CREATE PROCEDURE SelectAllCustomers
+   AS
+   SELECT * FROM Customers
+   GO;
+
+   Execute the stored procedure above as follows:
+   EXEC SelectAllCustomers;
+
+

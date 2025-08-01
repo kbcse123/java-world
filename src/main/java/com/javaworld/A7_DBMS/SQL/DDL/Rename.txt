@@ -1,0 +1,19 @@
+2. RENAME TABLE
+
+   Syntax:
+   ALTER TABLE table_name
+   RENAME TO new_name;
+
+   Example:
+   ALTER TABLE Customers
+   RENAME to Customers_info;
+
+2. RENAME COLUMN
+
+   Syntax:
+   ALTER TABLE table_name
+   RENAME COLUMN old_name to new_name;
+
+   Example:
+   ALTER TABLE Customers
+   RENAME COLUMN email to Email_id;

@@ -1,0 +1,82 @@
+
+1) Drop Database
+
+ Syntax:
+ DROP DATABASE databasename;
+
+2) Drop Table
+
+ Syntax:
+ DROP TABLE table_name;
+
+3) Drop Index
+
+ SQL Server:
+ DROP INDEX table_name.index_name;
+
+ DB2/Oracle:
+ DROP INDEX index_name;
+
+ MySQL:
+ ALTER TABLE table_name
+ DROP INDEX index_name;
+
+4) Drop View
+
+ DROP VIEW view_name;
+
+5) Drop Table v/s Truncate Table
+
+    . DROP TABLE command deletes a table in the database.
+    .TRUNCATE TABLE command deletes the data inside a table, but not the table itself.
+
+    Example:
+    TRUNCATE TABLE Categories;
+
+6) DROP CONSTRAINT
+   The DROP CONSTRAINT command is used to delete a UNIQUE, PRIMARY KEY, FOREIGN KEY, or CHECK constraint.
+
+   a) DROP a UNIQUE Constraint
+       SQL Server / Oracle / MS Access:
+           ALTER TABLE Persons
+           DROP CONSTRAINT UC_Person;
+
+       MySQL:
+           ALTER TABLE Persons
+           DROP INDEX UC_Person;
+
+   b) DROP a PRIMARY KEY Constraint
+       SQL Server / Oracle / MS Access:
+           ALTER TABLE Persons
+           DROP CONSTRAINT PK_Person;
+
+       MySQL:
+           ALTER TABLE Persons
+           DROP PRIMARY KEY;
+
+   c) DROP a FOREIGN KEY Constraint
+       SQL Server / Oracle / MS Access:
+           ALTER TABLE Orders
+           DROP CONSTRAINT FK_PersonOrder;
+
+       MySQL:
+           ALTER TABLE Orders
+           DROP FOREIGN KEY FK_PersonOrder;
+
+   d) DROP a CHECK Constraint
+       SQL Server / Oracle / MS Access:
+           ALTER TABLE Persons
+           DROP CONSTRAINT CHK_PersonAge;
+
+       MySQL:
+           ALTER TABLE Persons
+           DROP CHECK CHK_PersonAge;
+
+   e) DROP a DEFAULT Constraint
+       SQL Server / Oracle / MS Access:
+           ALTER TABLE Persons
+           ALTER COLUMN City DROP DEFAULT;
+
+       MySQL:
+           ALTER TABLE Persons
+           ALTER City DROP DEFAULT;

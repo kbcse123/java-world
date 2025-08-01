@@ -17,7 +17,7 @@ package com.javaworld.B0_Micro_Services.A0_design_patterns.A0_Decomposition;
  * other services are supported in legacy monolith application. During the course of development, more and more services
  * are developed and functionalities are moved away from a monolith.
  *
- * So when a new service is developed, the monolith is strangled, the old component is decommissioned and new microservice
+ * So when a new service is developed, the monolith  strangled, the old component decommissioned and new microservice
  * is deployed and supports the new functionality. A strangler pattern can be implemented using three steps −
  *  .Transformation − Develop the microservices independently to implement a particular functionality of a monolith.
  *  .Co-Exist − Both Monolith and Microservices will work. User can access functionality from both components.

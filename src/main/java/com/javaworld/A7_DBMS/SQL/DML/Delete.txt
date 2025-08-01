@@ -1,0 +1,18 @@
+
+1) DELETE
+    This statement is used to delete existing records in a table.
+
+    Syntax:
+    DELETE FROM table_name
+    WHERE condition;
+
+    Example:
+    DELETE FROM Customers
+    WHERE CustomerName='Shaik';
+
+2) Delete All Records - delete all rows in a table without deleting the table
+
+    Example:
+    DELETE FROM Customers;
+
+To delete the table completely, use the DROP TABLE statement

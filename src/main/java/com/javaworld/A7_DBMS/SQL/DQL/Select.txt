@@ -1,0 +1,117 @@
+DQL stands for Data Query Language
+
+
+1) SELECT Column(s) - The SELECT statement is used to select data from a database.
+
+Syntax:
+    SELECT column1, column2, ...
+    FROM table_name;
+
+Example:
+    SELECT CustomerName, City
+    FROM Customers;
+
+2) SELECT all columns - to display all columns data
+
+Syntax:
+    SELECT *
+    FROM table_name;
+
+Example:
+    SELECT *
+    FROM Customers;
+
+3) SELECT DISTINCT - This statement is used to return only distinct (different) values.
+
+Syntax:
+    SELECT DISTINCT column1, column2, ...
+    FROM table_name;
+
+Example:
+    SELECT DISTINCT Country
+    FROM Customers;
+
+    a) Count Distinct -
+    By using the DISTINCT keyword in a function called COUNT, we can return the count of different
+    countries.
+
+    Example:
+    SELECT COUNT(DISTINCT Country) FROM Customers;
+
+4) SELECT with WHERE - is used to extract only those records that fulfill a specified condition.
+
+    Syntax:
+    SELECT column1, column2, ...
+    FROM table_name
+    WHERE condition;
+
+    a) Text Fields v/s Numeric Fields
+       SQL requires single quotes around text values (most database systems allows double quotes too).
+       However, numeric fields should not be enclosed in quotes.
+
+        Example:
+        SELECT * FROM Customers
+        WHERE Country='Mexico';
+
+        SELECT * FROM Customers
+        WHERE CustomerID=1;
+    b) Operators in The WHERE Clause
+
+        Example: Select all customers with a CustomerID greater than 80:
+        SELECT * FROM Customers
+        WHERE CustomerID > 80;
+
+    The following operators can be used in the WHERE clause:
+
+    Operator	  Description
+        =	        Equal
+        >	        Greater than
+        <	        Less than
+        >=	        Greater than or equal
+        <=	        Less than or equal
+        <>	        Not equal. Note: In some versions of SQL this operator may be written as !=
+        BETWEEN	    Between a certain range
+        LIKE	    Search for a pattern
+        IN	        To specify multiple possible values for a column
+
+5) SELECT TOP, LIMIT, FETCH FIRST or ROWNUM Clause
+    These clauses are used to specify the number of records to return.
+
+    Example: Select only the first 10 records of the Customers table:
+        SELECT TOP 10 * FROM Customers;
+
+    Note: Not all database systems support the SELECT TOP clause. MySQL supports the LIMIT clause to
+    select a limited number of records, while Oracle uses FETCH FIRST n ROWS ONLY and ROWNUM.
+
+    SQL Server / MS Access Syntax:
+        SELECT TOP number column_name(s)
+        FROM table_name
+        WHERE condition;
+
+    MySQL Syntax:
+        SELECT column_name(s)
+        FROM table_name
+        WHERE condition
+        LIMIT number;
+
+    Oracle 12 Syntax:
+        SELECT column_name(s)
+        FROM table_name
+        ORDER BY column_name(s)
+        FETCH FIRST number ROWS ONLY;
+
+    Older Oracle Syntax:
+        SELECT column_name(s)
+        FROM table_name
+        WHERE ROWNUM <= number;
+
+6) SQL TOP PERCENT -
+    The following SQL statement selects the first 50% of the records from the "Customers" table.
+
+    SQL Server:
+        SELECT TOP 50 PERCENT *
+        FROM Customers;
+
+    Oracle:
+        SELECT * FROM Customers
+        FETCH FIRST 50 PERCENT ROWS ONLY;
